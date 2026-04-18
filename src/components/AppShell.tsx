@@ -1,19 +1,9 @@
 import { ReactNode } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { LogOut, MessagesSquare } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
-import { Button } from "@/components/ui/button";
+import { NavLink } from "react-router-dom";
+import { MessagesSquare } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function AppShell({ children }: { children: ReactNode }) {
-  const { agent, signOut } = useAuth();
-  const navigate = useNavigate();
-
-  const onSignOut = async () => {
-    await signOut();
-    navigate("/login", { replace: true });
-  };
-
   return (
     <div className="flex min-h-screen bg-background">
       <aside className="flex w-56 flex-col border-r border-border bg-sidebar">
@@ -38,16 +28,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
           </NavLink>
         </nav>
         <div className="border-t border-sidebar-border p-3">
-          <div className="mb-2 px-2 text-xs text-muted-foreground">
-            <p className="truncate font-medium text-sidebar-foreground">
-              {agent?.name ?? agent?.email}
-            </p>
-            {agent?.name && <p className="truncate">{agent.email}</p>}
-          </div>
-          <Button variant="ghost" size="sm" className="w-full justify-start" onClick={onSignOut}>
-            <LogOut className="h-4 w-4" />
-            Sign out
-          </Button>
+          <p className="px-2 text-xs text-muted-foreground">Auth disabled</p>
         </div>
       </aside>
       <main className="flex-1 overflow-auto">{children}</main>
