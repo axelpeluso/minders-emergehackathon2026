@@ -492,18 +492,30 @@ function CellRenderer({
 
   if (col.type === "contact" && value) {
     const channel = col.key === "email" ? "email" : "sms";
+    const trigger = (
+      <button
+        onClick={(e) => e.stopPropagation()}
+        className="flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground opacity-0 transition-opacity hover:bg-primary/10 hover:text-primary group-hover:opacity-100"
+        aria-label={`Send ${channel}`}
+      >
+        {channel === "email" ? <Mail className="h-3.5 w-3.5" /> : <Phone className="h-3.5 w-3.5" />}
+      </button>
+    );
     return (
       <div className="flex items-center justify-between gap-2 px-3 py-2.5">
         <span className="truncate text-sm">{value}</span>
-        <FollowupPopover lead={lead} channel={channel} onSend={onSendFollowup}>
-          <button
-            onClick={(e) => e.stopPropagation()}
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded text-muted-foreground opacity-0 transition-opacity hover:bg-primary/10 hover:text-primary group-hover:opacity-100"
-            aria-label={`Send ${channel}`}
+        {channel === "email" ? (
+          <ComposeEmailDialog
+            lead={lead}
+            onSend={(l, _c, body) => onSendFollowup(l, "email", body)}
           >
-            {channel === "email" ? <Mail className="h-3.5 w-3.5" /> : <Phone className="h-3.5 w-3.5" />}
-          </button>
-        </FollowupPopover>
+            {trigger}
+          </ComposeEmailDialog>
+        ) : (
+          <FollowupPopover lead={lead} channel={channel} onSend={onSendFollowup}>
+            {trigger}
+          </FollowupPopover>
+        )}
       </div>
     );
   }
