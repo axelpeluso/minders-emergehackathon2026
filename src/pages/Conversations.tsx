@@ -83,7 +83,7 @@ export default function Conversations() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Conversations — Minders";
+    document.title = "Conversations — Bella";
   }, []);
 
   // Load conversations + last message preview

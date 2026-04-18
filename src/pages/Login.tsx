@@ -16,7 +16,7 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    document.title = "Login — Minders CRM";
+    document.title = "Login — Bella CRM";
   }, []);
 
   // If already signed in AND in agents table, jump to inbox.
@@ -64,7 +64,7 @@ export default function Login() {
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
       <Card className="w-full max-w-sm border-border">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-xl">Minders</CardTitle>
+          <CardTitle className="text-xl">Bella</CardTitle>
           <CardDescription>Sign in to monitor live conversations.</CardDescription>
         </CardHeader>
         <CardContent>
