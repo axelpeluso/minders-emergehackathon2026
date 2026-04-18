@@ -19,22 +19,19 @@ export type Conversation = {
   id: string;
   customer_id: string;
   status: "active" | "idle" | "handoff" | string;
-  intent: string | null;
-  message_count: number | null;
+  handoff_summary: string | null;
+  handoff_suggested_reply: string | null;
+  entry_page: string | null;
+  started_at: string | null;
   last_message_at: string | null;
-  assigned_agent_id: string | null;
-  handoff_at: string | null;
-  created_at: string | null;
-  summary: string | null;
+  closed_at: string | null;
 };
 
 export type Customer = {
   id: string;
-  display_name: string | null;
-  preferred_language: string | null;
-  lead_score: number | null;
   email: string | null;
   phone: string | null;
+  preferred_language: string | null;
   nail_shape: string | null;
   color_family: string | null;
   finish: string | null;
@@ -42,13 +39,20 @@ export type Customer = {
   occasion: string | null;
   urgency_days: number | null;
   budget_range: string | null;
+  intent: string | null;
   hema_concerns: boolean | null;
   past_reactions: string | null;
   sensitive_skin: boolean | null;
-  tags: string[] | null;
+  lead_score: number | null;
+  lead_factors: unknown | null;
+  metadata: Record<string, unknown> | null;
+  created_at: string | null;
+  updated_at: string | null;
 };
 
 export type Agent = {
   id: string;
   email: string;
+  name: string | null;
+  role: string | null;
 };
