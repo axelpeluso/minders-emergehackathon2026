@@ -21,7 +21,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-background">
       <aside className="flex w-56 flex-col border-r border-sidebar-border bg-sidebar">
         <div className="px-5 py-6">
-          <p className="text-base font-semibold tracking-tight text-sidebar-foreground">Minders</p>
+          <p className="text-base font-semibold tracking-tight text-sidebar-foreground">Bella</p>
           <p className="text-xs text-muted-foreground">Bellezza Miami</p>
         </div>
         <nav className="flex-1 space-y-0.5 px-3">
