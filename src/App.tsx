@@ -7,6 +7,7 @@ import AppShell from "@/components/AppShell";
 import Conversations from "./pages/Conversations";
 import Dashboard from "./pages/Dashboard";
 import Leads from "./pages/Leads";
+import Newsletters from "./pages/Newsletters";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
