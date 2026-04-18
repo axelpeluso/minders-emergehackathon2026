@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import AppShell from "@/components/AppShell";
 import Conversations from "./pages/Conversations";
+import Dashboard from "./pages/Dashboard";
 import Leads from "./pages/Leads";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -17,8 +18,16 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/leads" replace />} />
-          <Route path="/login" element={<Navigate to="/leads" replace />} />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+          <Route
+            path="/dashboard"
+            element={
+              <AppShell>
+                <Dashboard />
+              </AppShell>
+            }
+          />
           <Route
             path="/leads"
             element={

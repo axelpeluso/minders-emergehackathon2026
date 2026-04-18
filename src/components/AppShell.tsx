@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { MessagesSquare, Users } from "lucide-react";
+import { LayoutDashboard, MessagesSquare, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { seedLeadsIfEmpty } from "@/lib/seedLeads";
 
@@ -25,6 +25,10 @@ export default function AppShell({ children }: { children: ReactNode }) {
           <p className="text-xs text-muted-foreground">Bellezza Miami</p>
         </div>
         <nav className="flex-1 space-y-0.5 px-3">
+          <NavLink to="/dashboard" className={linkClass}>
+            <LayoutDashboard className="h-4 w-4" />
+            Dashboard
+          </NavLink>
           <NavLink to="/leads" className={linkClass}>
             <Users className="h-4 w-4" />
             Leads
