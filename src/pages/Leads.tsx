@@ -102,7 +102,7 @@ export default function Leads() {
   const inputRef = useRef<HTMLInputElement | HTMLSelectElement>(null);
 
   useEffect(() => {
-    document.title = "Leads — Minders";
+    document.title = "Leads — Bella";
   }, []);
 
   useEffect(() => {
