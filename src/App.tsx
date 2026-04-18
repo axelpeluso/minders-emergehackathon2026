@@ -45,6 +45,14 @@ const App = () => (
               </AppShell>
             }
           />
+          <Route
+            path="/newsletters"
+            element={
+              <AppShell>
+                <Newsletters />
+              </AppShell>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
